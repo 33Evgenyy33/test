@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Avito</title>
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js', 'build') }}" defer></script>
@@ -20,9 +20,9 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css', 'build') }}" rel="stylesheet">
 </head>
-<body>
-<div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<body id="app">
+<header>
+    <nav class="navbar navbar-expand-md navbar-light navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -75,10 +75,19 @@
             </div>
         </div>
     </nav>
-
-    <main class="py-4">
+</header>
+<main class="app-content py-4">
+    <div class="container">
+        @yield('breadcrumb')
         @yield('content')
-    </main>
-</div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div class="border-top pt-3">
+            <p>&copy; {{date('Y')}} - Avito</p>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
